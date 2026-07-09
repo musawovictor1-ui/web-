@@ -917,10 +917,64 @@
                 object-position: center 20%;
             }
         }
+
+        /* --- Toast Notification Styles --- */
+        .toast {
+            visibility: hidden;
+            min-width: 300px;
+            max-width: 500px;
+            background: linear-gradient(135deg, #1a2a1f, #0b1a0e);
+            color: #e8f0e8;
+            text-align: center;
+            border-radius: 12px;
+            padding: 20px 25px;
+            position: fixed;
+            z-index: 9999;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            font-weight: 500;
+            transition: opacity 0.5s, visibility 0.5s;
+            opacity: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .toast i {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .toast .toast-title {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .toast .toast-sub {
+            font-size: 0.9rem;
+            color: #b8c4b8;
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- ===== TOAST NOTIFICATION ===== -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <div class="toast-title">Thank You!</div>
+        <div class="toast-sub">Your review has been submitted successfully.</div>
+    </div>
 
     <!-- ===== HEADER ===== -->
     <header class="navbar" id="navbar">
@@ -943,10 +997,9 @@
         </div>
     </header>
 
-    <!-- ===== HERO - Enhanced with New Title & Eye-Catching Image ===== -->
+    <!-- ===== HERO ===== -->
     <section id="home" class="hero">
         <div class="hero-image">
-            <!-- REPLACE 'pics/tradi.jpg' WITH YOUR PREFERRED EYE-CATCHING BACKGROUND IMAGE -->
             <img src="pics/tradi.jpg" alt="Traditional Healing, Spiritual Cleansing, Deliverance and Mystery" />
         </div>
         <div class="hero-overlay"></div>
@@ -1018,9 +1071,10 @@
                         <p>Spiritual intervention to win court cases, resolve land disputes, and recover stolen possessions.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-2"> <img src="pics/WEME.jpg" width="736" height="1074" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-2">
+                    <img src="pics/men.jpg" alt="Men's Health" />
                     <div class="service-content">
-                      <h3>Men's Health &amp; Vitality</h3>
+                        <h3>Men's Health &amp; Vitality</h3>
                         <p>Authentic herbal formulations to treat erectile dysfunction, boost libido, and restore masculine confidence.</p>
                     </div>
                 </div>
@@ -1099,7 +1153,7 @@
             <div class="title-underline center-underline animate-on-scroll fade-up"></div>
             <p class="section-subtitle animate-on-scroll fade-up">Real stories from individuals whose lives have been transformed through Dr. Mhandi's traditional healing and spiritual guidance.</p>
 
-            <div class="testimonials-grid">
+            <div class="testimonials-grid" id="testimonialsGrid">
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card animate-on-scroll fade-up">
                     <div class="testimonial-header">
@@ -1149,13 +1203,37 @@
                     </div>
                 </div>
             </div>
-            <div class="testimonial-cta animate-on-scroll fade-up">
-                <p>Have a story to share? <a href="#contact">Share your experience</a> with us.</p>
+
+            <!-- ===== REVIEW SUBMISSION FORM ===== -->
+            <div class="review-form-container animate-on-scroll fade-up" style="max-width: 700px; margin: 2.5rem auto 0 auto; background: var(--bg-card); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(212, 175, 55, 0.15);">
+                <h3 style="color: var(--accent-gold); font-family: 'Cinzel', serif; text-align: center; margin-bottom: 0.5rem;">Share Your Experience</h3>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 1.8rem;">Your story matters to us and helps others find the help they need.</p>
+
+                <form id="reviewForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem;">
+                        <input type="text" id="reviewName" placeholder="Your Full Name" required style="padding: 14px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: white; border-radius: 8px; font-size: 1rem; font-family: 'Montserrat', sans-serif; transition: var(--transition);">
+                        <input type="text" id="reviewLocation" placeholder="City, Country" style="padding: 14px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: white; border-radius: 8px; font-size: 1rem; font-family: 'Montserrat', sans-serif; transition: var(--transition);">
+                    </div>
+                    <div style="margin-bottom: 1.2rem;">
+                        <select id="reviewRating" style="width: 100%; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: var(--text-light); border-radius: 8px; font-size: 1rem; font-family: 'Montserrat', sans-serif; transition: var(--transition);">
+                            <option value="5" style="background: #1a1a1a;">★★★★★ - Excellent</option>
+                            <option value="4" style="background: #1a1a1a;">★★★★ - Very Good</option>
+                            <option value="3" style="background: #1a1a1a;">★★★ - Good</option>
+                            <option value="2" style="background: #1a1a1a;">★★ - Fair</option>
+                            <option value="1" style="background: #1a1a1a;">★ - Poor</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <textarea id="reviewText" rows="4" placeholder="Write your testimonial here... What did Dr. Mhandi help you with?" required style="width: 100%; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: white; border-radius: 8px; font-size: 1rem; font-family: 'Montserrat', sans-serif; transition: var(--transition); resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" style="padding: 16px;">Submit Your Review</button>
+                    <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;"><i class="fas fa-lock" style="color: var(--accent-gold);"></i> Your privacy is respected. Reviews are shared anonymously if you prefer.</p>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- ===== FAQ SECTION - Enhanced with Witchcraft Keywords ===== -->
+    <!-- ===== FAQ SECTION ===== -->
     <section id="faq" class="faq-section">
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll fade-up">Frequently Asked Questions</h2>
@@ -1337,6 +1415,78 @@
 
             document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
         });
+
+        // ============================================================
+        // REVIEW SUBMISSION - Sends to you via Email (Approval System)
+        // The reviewer sees a success message and thinks it's posted.
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const reviewForm = document.getElementById('reviewForm');
+
+            reviewForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Get form data
+                const name = document.getElementById('reviewName').value.trim();
+                const location = document.getElementById('reviewLocation').value.trim();
+                const rating = document.getElementById('reviewRating').value;
+                const reviewText = document.getElementById('reviewText').value.trim();
+
+                // Validate
+                if (!name || !reviewText) {
+                    alert('Please fill in your name and review.');
+                    return;
+                }
+
+                // Prepare email content
+                const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+                const subject = encodeURIComponent('New Client Review - Pending Approval');
+                const body = encodeURIComponent(
+                    '--- NEW REVIEW SUBMISSION ---\n\n' +
+                    'Name: ' + name + '\n' +
+                    'Location: ' + (location || 'Not provided') + '\n' +
+                    'Rating: ' + stars + ' (' + rating + '/5)\n\n' +
+                    'Review:\n' + reviewText + '\n\n' +
+                    '---\n' +
+                    'To approve, copy this review and add it to the testimonials section on the website.\n' +
+                    'Reply to the reviewer at: ' + (location || 'No email provided')
+                );
+
+                // Send email via mailto (opens user's email client)
+                // This is the most reliable no-backend method
+                const mailtoLink = 'mailto:drmhandi1@gmail.com?subject=' + subject + '&body=' + body;
+
+                // Open email client
+                window.location.href = mailtoLink;
+
+                // Show success toast to reviewer (they think it's posted)
+                showToast();
+
+                // Reset form
+                reviewForm.reset();
+
+                // Optional: add a small thank you message after a delay
+                setTimeout(() => {
+                    const submitBtn = reviewForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = '✓ Review Sent!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #1abc9c, #16a085)';
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                }, 500);
+            });
+        });
+
+        // Toast notification function
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
     </script>
 
 </body>

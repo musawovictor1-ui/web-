@@ -802,6 +802,107 @@
             transition-delay: 0.45s;
         }
 
+        /* ===== REVIEW CARD STYLES ===== */
+        .review-temp {
+            border: 2px solid rgba(212, 175, 55, 0.4) !important;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.1) !important;
+            position: relative;
+        }
+
+        .review-temp::before {
+            content: "⏳ Pending Approval";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 14px;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .review-temp .testimonial-date {
+            color: var(--accent-gold) !important;
+            opacity: 0.8;
+        }
+
+        /* --- Review Form --- */
+        .review-form-container {
+            max-width: 700px;
+            margin: 2.5rem auto 0 auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .review-form-container h3 {
+            color: var(--accent-gold);
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-form-container .sub-text {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 1.8rem;
+        }
+
+        .review-form-container input,
+        .review-form-container select,
+        .review-form-container textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: white;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+
+        .review-form-container input:focus,
+        .review-form-container select:focus,
+        .review-form-container textarea:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(26, 188, 156, 0.1);
+        }
+
+        .review-form-container select option {
+            background: #1a1a1a;
+        }
+
+        .review-form-container .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .review-form-container .btn-submit {
+            padding: 16px;
+            width: 100%;
+        }
+
+        .review-form-container .privacy-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .review-form-container .privacy-note i {
+            color: var(--accent-gold);
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .about-grid,
@@ -894,6 +995,9 @@
             .contact-info h3 {
                 font-size: 1.6rem;
             }
+            .review-form-container .form-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -916,65 +1020,14 @@
             .hero-image img {
                 object-position: center 20%;
             }
-        }
-
-        /* --- Toast Notification Styles --- */
-        .toast {
-            visibility: hidden;
-            min-width: 300px;
-            max-width: 500px;
-            background: linear-gradient(135deg, #1a2a1f, #0b1a0e);
-            color: #e8f0e8;
-            text-align: center;
-            border-radius: 12px;
-            padding: 20px 25px;
-            position: fixed;
-            z-index: 9999;
-            bottom: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            font-weight: 500;
-            transition: opacity 0.5s, visibility 0.5s;
-            opacity: 0;
-            backdrop-filter: blur(10px);
-        }
-
-        .toast.show {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .toast i {
-            color: var(--accent-gold);
-            font-size: 1.8rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .toast .toast-title {
-            font-family: 'Cinzel', serif;
-            color: var(--accent-gold);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .toast .toast-sub {
-            font-size: 0.9rem;
-            color: #b8c4b8;
+            .review-form-container {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <!-- ===== TOAST NOTIFICATION ===== -->
-    <div id="toast" class="toast">
-        <i class="fas fa-check-circle"></i>
-        <div class="toast-title">Thank You!</div>
-        <div class="toast-sub">Your review has been submitted successfully.</div>
-    </div>
 
     <!-- ===== HEADER ===== -->
     <header class="navbar" id="navbar">
@@ -1035,7 +1088,7 @@
             <h2 class="section-title text-center animate-on-scroll fade-up">Our Expertise &amp; Solutions</h2>
             <div class="title-underline center-underline animate-on-scroll fade-up"></div>
             <div class="services-grid">
-                <!-- Service cards (your content preserved) -->
+                <!-- Service cards -->
                 <div class="service-card animate-on-scroll fade-up">
                     <img src="pics/3de594d1489198b6ae2b31964f371dd0 - Copy.jpg" alt="Love & Relationship" />
                     <div class="service-content">
@@ -1154,8 +1207,8 @@
             <p class="section-subtitle animate-on-scroll fade-up">Real stories from individuals whose lives have been transformed through Dr. Mhandi's traditional healing and spiritual guidance.</p>
 
             <div class="testimonials-grid" id="testimonialsGrid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card animate-on-scroll fade-up">
+                <!-- Testimonial 1 (Permanent) -->
+                <div class="testimonial-card animate-on-scroll fade-up" data-permanent="true">
                     <div class="testimonial-header">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <span class="testimonial-date">January 2026</span>
@@ -1166,8 +1219,8 @@
                         <div class="author-info"><h4>James M.</h4><p>Business Owner, Nairobi</p></div>
                     </div>
                 </div>
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card animate-on-scroll fade-up delay-1">
+                <!-- Testimonial 2 (Permanent) -->
+                <div class="testimonial-card animate-on-scroll fade-up delay-1" data-permanent="true">
                     <div class="testimonial-header">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <span class="testimonial-date">March 2026</span>
@@ -1178,8 +1231,8 @@
                         <div class="author-info"><h4>Sarah M.</h4><p>Entrepreneur, Kampala</p></div>
                     </div>
                 </div>
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card animate-on-scroll fade-up delay-2">
+                <!-- Testimonial 3 (Permanent) -->
+                <div class="testimonial-card animate-on-scroll fade-up delay-2" data-permanent="true">
                     <div class="testimonial-header">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <span class="testimonial-date">May 2026</span>
@@ -1190,8 +1243,8 @@
                         <div class="author-info"><h4>Robert K.</h4><p>Engineer, Mombasa</p></div>
                     </div>
                 </div>
-                <!-- Testimonial 4 -->
-                <div class="testimonial-card animate-on-scroll fade-up delay-3">
+                <!-- Testimonial 4 (Permanent) -->
+                <div class="testimonial-card animate-on-scroll fade-up delay-3" data-permanent="true">
                     <div class="testimonial-header">
                         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <span class="testimonial-date">June 2026</span>
@@ -1205,29 +1258,29 @@
             </div>
 
             <!-- ===== REVIEW SUBMISSION FORM ===== -->
-            <div class="review-form-container animate-on-scroll fade-up" style="max-width: 700px; margin: 2.5rem auto 0 auto; background: var(--bg-card); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(212, 175, 55, 0.15);">
-                <h3 style="color: var(--accent-gold); font-family: 'Cinzel', serif; text-align: center; margin-bottom: 0.5rem;">Share Your Experience</h3>
-                <p style="text-align: center; color: var(--text-muted); margin-bottom: 1.8rem;">Your story matters to us and helps others find the help they need.</p>
+            <div class="review-form-container animate-on-scroll fade-up">
+                <h3>Share Your Experience</h3>
+                <p class="sub-text">Your story matters to us and helps others find the help they need.</p>
 
                 <form id="reviewForm">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem;">
-                        <input type="text" id="reviewName" placeholder="Your Full Name" required style="padding: 14px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: white; border-radius: 8px; font-size: 1rem; font-family: 'Montserrat', sans-serif; transition: var(--transition);">
-                        <input type="text" id="reviewLocation" placeholder="City, Country" style="padding: 14px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: white; border-radius: 8px; font-size: 1rem; font-family: 'Montserrat', sans-serif; transition: var(--transition);">
+                    <div class="form-row">
+                        <input type="text" id="reviewName" placeholder="Your Full Name" required />
+                        <input type="text" id="reviewLocation" placeholder="City, Country" />
                     </div>
                     <div style="margin-bottom: 1.2rem;">
-                        <select id="reviewRating" style="width: 100%; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: var(--text-light); border-radius: 8px; font-size: 1rem; font-family: 'Montserrat', sans-serif; transition: var(--transition);">
-                            <option value="5" style="background: #1a1a1a;">★★★★★ - Excellent</option>
-                            <option value="4" style="background: #1a1a1a;">★★★★ - Very Good</option>
-                            <option value="3" style="background: #1a1a1a;">★★★ - Good</option>
-                            <option value="2" style="background: #1a1a1a;">★★ - Fair</option>
-                            <option value="1" style="background: #1a1a1a;">★ - Poor</option>
+                        <select id="reviewRating" required>
+                            <option value="5">★★★★★ - Excellent</option>
+                            <option value="4">★★★★ - Very Good</option>
+                            <option value="3">★★★ - Good</option>
+                            <option value="2">★★ - Fair</option>
+                            <option value="1">★ - Poor</option>
                         </select>
                     </div>
                     <div style="margin-bottom: 1.5rem;">
-                        <textarea id="reviewText" rows="4" placeholder="Write your testimonial here... What did Dr. Mhandi help you with?" required style="width: 100%; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: white; border-radius: 8px; font-size: 1rem; font-family: 'Montserrat', sans-serif; transition: var(--transition); resize: vertical;"></textarea>
+                        <textarea id="reviewText" rows="4" placeholder="Write your testimonial here... What did Dr. Mhandi help you with?" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full" style="padding: 16px;">Submit Your Review</button>
-                    <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;"><i class="fas fa-lock" style="color: var(--accent-gold);"></i> Your privacy is respected. Reviews are shared anonymously if you prefer.</p>
+                    <button type="submit" class="btn btn-primary btn-submit">Submit Your Review</button>
+                    <p class="privacy-note"><i class="fas fa-lock"></i> Your privacy is respected. Reviews are shared anonymously if you prefer.</p>
                 </form>
             </div>
         </div>
@@ -1239,7 +1292,7 @@
             <h2 class="section-title text-center animate-on-scroll fade-up">Frequently Asked Questions</h2>
             <div class="title-underline center-underline animate-on-scroll fade-up"></div>
             <div class="faq-grid">
-                <!-- FAQ 1 - Witchcraft & Black Magic -->
+                <!-- FAQ items -->
                 <div class="faq-item animate-on-scroll fade-up">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-skull"></i> How do I know if I am under a witchcraft attack or black magic spell?</span>
@@ -1247,7 +1300,6 @@
                     </div>
                     <div class="faq-answer"><p>Common signs of witchcraft or black magic include persistent nightmares, unexplained illnesses, financial ruin, marital strife, and constant bad luck. Dr. Mhandi performs psychic readings and divination to confirm attacks and provides powerful protection rituals to break curses and hexes.</p></div>
                 </div>
-                <!-- FAQ 2 - Hex Removal -->
                 <div class="faq-item animate-on-scroll fade-up delay-1">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-bolt"></i> Can you remove hexes, curses, and dark magic from my life?</span>
@@ -1255,7 +1307,6 @@
                     </div>
                     <div class="faq-answer"><p>Yes. Dr. Mhandi specializes in identifying and dismantling dark magic, hexes, and generational curses. Using powerful reversal rituals and spiritual cleansings, he neutralizes negative energies and returns them to their source, restoring peace and prosperity.</p></div>
                 </div>
-                <!-- FAQ 3 - Spiritual Cleansing -->
                 <div class="faq-item animate-on-scroll fade-up delay-2">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-broom"></i> What does a spiritual cleansing involve, and how does it remove witchcraft?</span>
@@ -1263,7 +1314,6 @@
                     </div>
                     <div class="faq-answer"><p>Spiritual cleansing involves powerful rituals using sacred herbs, roots, and prayers to purge negative energy, witchcraft, and evil spirits from your aura and home. It breaks curses, removes the evil eye, and restores your spiritual protection.</p></div>
                 </div>
-                <!-- FAQ 4 - Male Vitality -->
                 <div class="faq-item animate-on-scroll fade-up">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-male"></i> Can herbal medicine treat erectile dysfunction and low libido effectively?</span>
@@ -1271,7 +1321,6 @@
                     </div>
                     <div class="faq-answer"><p>Dr. Mhandi formulates potent traditional herbs that naturally restore male vitality, treat erectile dysfunction, enhance libido, and improve stamina. These remedies are derived from ancient African pharmacopoeia and are entirely natural.</p></div>
                 </div>
-                <!-- FAQ 5 - Ancestral Consultations -->
                 <div class="faq-item animate-on-scroll fade-up delay-1">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-tree"></i> What ancestral spiritual consultations do you offer for destiny?</span>
@@ -1279,7 +1328,6 @@
                     </div>
                     <div class="faq-answer"><p>We connect you with your ancestral spirits to heal generational traumas, unlock dormant talents, and align your destiny. This helps in overcoming repeated failures and receiving guidance for major life decisions.</p></div>
                 </div>
-                <!-- FAQ 6 - Justice & Revenge -->
                 <div class="faq-item animate-on-scroll fade-up delay-2">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-gavel"></i> Can traditional justice spells help me win a court case or get revenge?</span>
@@ -1287,7 +1335,6 @@
                     </div>
                     <div class="faq-answer"><p>Dr. Mhandi performs ethical justice rituals to ensure truth prevails in legal battles. For cases of severe wrongdoing, we offer spiritual revenge to expose lies and bring fair retribution upon enemies.</p></div>
                 </div>
-                <!-- FAQ 7 - Psychic Readings -->
                 <div class="faq-item animate-on-scroll fade-up">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-eye"></i> How do psychic readings work and can they predict my future?</span>
@@ -1295,7 +1342,6 @@
                     </div>
                     <div class="faq-answer"><p>Psychic readings tap into the spiritual energy around you using bones, shells, or ancestral visions. Dr. Mhandi reveals hidden truths, upcoming opportunities, and warns you of potential dangers ahead.</p></div>
                 </div>
-                <!-- FAQ 8 - Divorce Prevention -->
                 <div class="faq-item animate-on-scroll fade-up delay-1">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-hand-holding-heart"></i> What is the process for divorce prevention using traditional roots?</span>
@@ -1303,7 +1349,6 @@
                     </div>
                     <div class="faq-answer"><p>We use special roots and binding rituals to calm anger, increase intimacy, and restore communication between partners. This process addresses the spiritual root cause of marital discord, preventing separation.</p></div>
                 </div>
-                <!-- FAQ 9 - Career & Promotion -->
                 <div class="faq-item animate-on-scroll fade-up delay-2">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-briefcase"></i> Can you help me get a promotion or outshine my workplace rivals?</span>
@@ -1417,76 +1462,127 @@
         });
 
         // ============================================================
-        // REVIEW SUBMISSION - Sends to you via Email (Approval System)
-        // The reviewer sees a success message and thinks it's posted.
+        // REVIEW SYSTEM: Temporarily displays review, sends to email
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
             const reviewForm = document.getElementById('reviewForm');
+            const testimonialsGrid = document.getElementById('testimonialsGrid');
+
+            // Generate random avatar color
+            function getAvatarColor(name) {
+                const colors = [
+                    'linear-gradient(135deg, #d4af37, #8e44ad)',
+                    'linear-gradient(135deg, #1abc9c, #3b82f6)',
+                    'linear-gradient(135deg, #e6a8d7, #d4af37)',
+                    'linear-gradient(135deg, #3b82f6, #8e44ad)',
+                    'linear-gradient(135deg, #e74c3c, #f39c12)',
+                    'linear-gradient(135deg, #2ecc71, #1abc9c)'
+                ];
+                let hash = 0;
+                for (let i = 0; i < name.length; i++) {
+                    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+                }
+                return colors[Math.abs(hash) % colors.length];
+            }
+
+            // Get initials
+            function getInitials(name) {
+                return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+            }
+
+            // Format date
+            function getCurrentDate() {
+                const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                ];
+                const now = new Date();
+                return months[now.getMonth()] + ' ' + now.getFullYear();
+            }
 
             reviewForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
                 // Get form data
                 const name = document.getElementById('reviewName').value.trim();
-                const location = document.getElementById('reviewLocation').value.trim();
-                const rating = document.getElementById('reviewRating').value;
+                const location = document.getElementById('reviewLocation').value.trim() || 'Client';
+                const rating = parseInt(document.getElementById('reviewRating').value);
                 const reviewText = document.getElementById('reviewText').value.trim();
 
-                // Validate
                 if (!name || !reviewText) {
                     alert('Please fill in your name and review.');
                     return;
                 }
 
-                // Prepare email content
-                const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
-                const subject = encodeURIComponent('New Client Review - Pending Approval');
+                // --- 1. TEMPORARILY DISPLAY THE REVIEW ON THE WEBSITE ---
+                const starsHtml = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+                const avatarColor = getAvatarColor(name);
+                const initials = getInitials(name);
+                const currentDate = getCurrentDate();
+
+                // Create new testimonial card
+                const newCard = document.createElement('div');
+                newCard.className = 'testimonial-card animate-on-scroll fade-up review-temp';
+                newCard.setAttribute('data-temp', 'true');
+                newCard.innerHTML = `
+                    <div class="testimonial-header">
+                        <div class="stars">${starsHtml}</div>
+                        <span class="testimonial-date">${currentDate} · Pending</span>
+                    </div>
+                    <blockquote><i class="fas fa-quote-left quote-icon"></i> "${reviewText}"</blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: ${avatarColor};"><span>${initials}</span></div>
+                        <div class="author-info">
+                            <h4>${name}</h4>
+                            <p>${location}</p>
+                        </div>
+                    </div>
+                `;
+
+                // Add to grid (at the beginning)
+                testimonialsGrid.insertBefore(newCard, testimonialsGrid.firstChild);
+
+                // Trigger animation
+                setTimeout(() => {
+                    newCard.classList.add('visible');
+                }, 100);
+
+                // --- 2. SEND TO YOUR EMAIL (mailto) ---
+                const starsText = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+                const subject = encodeURIComponent('NEW REVIEW - Pending Approval');
                 const body = encodeURIComponent(
                     '--- NEW REVIEW SUBMISSION ---\n\n' +
                     'Name: ' + name + '\n' +
-                    'Location: ' + (location || 'Not provided') + '\n' +
-                    'Rating: ' + stars + ' (' + rating + '/5)\n\n' +
+                    'Location: ' + location + '\n' +
+                    'Rating: ' + starsText + ' (' + rating + '/5)\n\n' +
                     'Review:\n' + reviewText + '\n\n' +
                     '---\n' +
-                    'To approve, copy this review and add it to the testimonials section on the website.\n' +
+                    '✅ This review is temporarily displayed on the website.\n' +
+                    'To make it permanent, copy it and add it as a permanent testimonial.\n' +
                     'Reply to the reviewer at: ' + (location || 'No email provided')
                 );
 
-                // Send email via mailto (opens user's email client)
-                // This is the most reliable no-backend method
-                const mailtoLink = 'mailto:drmhandi1@gmail.com?subject=' + subject + '&body=' + body;
-
                 // Open email client
-                window.location.href = mailtoLink;
+                window.location.href = 'mailto:drmhandi1@gmail.com?subject=' + subject + '&body=' + body;
 
-                // Show success toast to reviewer (they think it's posted)
-                showToast();
+                // --- 3. SHOW SUCCESS FEEDBACK ---
+                const submitBtn = reviewForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = '✓ Review Posted!';
+                submitBtn.style.background = 'linear-gradient(135deg, #1abc9c, #16a085)';
+                submitBtn.style.color = 'white';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.style.color = '';
+                    submitBtn.disabled = false;
+                }, 4000);
 
                 // Reset form
                 reviewForm.reset();
-
-                // Optional: add a small thank you message after a delay
-                setTimeout(() => {
-                    const submitBtn = reviewForm.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = '✓ Review Sent!';
-                    submitBtn.style.background = 'linear-gradient(135deg, #1abc9c, #16a085)';
-                    setTimeout(() => {
-                        submitBtn.textContent = originalText;
-                        submitBtn.style.background = '';
-                    }, 3000);
-                }, 500);
             });
         });
-
-        // Toast notification function
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 5000);
-        }
     </script>
 
 </body>

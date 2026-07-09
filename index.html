@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr. Mhandi | Renowned Traditional Healer &amp; Spiritual Guide</title>
+    <title>Dr. Mhandi | Traditional Healing, Spiritual Cleansing, Deliverance & Mystery</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://herbalistdrgwaurodaktari.co.ke/images/witch%20doctor.png" />
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
-        /* ===== ROOT VARIABLES (Enhanced Colors) ===== */
+        /* ===== ROOT VARIABLES ===== */
         :root {
             --primary-dark: #0b0e0c;
             --accent-gold: #d4af37;
@@ -57,7 +57,11 @@
         }
 
         /* --- Typography --- */
-        h1, h2, h3, h4, .logo {
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
             font-family: 'Cinzel', serif;
         }
 
@@ -91,7 +95,7 @@
 
         /* --- Sections & Backgrounds --- */
         .section {
-            padding: 6rem 0;
+            padding: 5rem 0;
             position: relative;
             overflow: hidden;
         }
@@ -118,7 +122,7 @@
             z-index: 2;
         }
 
-        /* --- Buttons (Enhanced Glows) --- */
+        /* --- Buttons --- */
         .btn {
             display: inline-block;
             padding: 15px 35px;
@@ -166,7 +170,7 @@
             color: white !important;
             padding: 10px 25px;
             border-radius: 30px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
         }
@@ -217,16 +221,17 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-light);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             transition: var(--transition);
+            letter-spacing: 0.5px;
         }
 
         .nav-links a:hover {
@@ -240,7 +245,7 @@
             color: var(--accent-gold);
         }
 
-        /* --- Hero Section (Enhanced Gradient Overlay) --- */
+        /* --- Hero Section - Enhanced & Eye-Catching --- */
         .hero {
             min-height: 100vh;
             position: relative;
@@ -256,9 +261,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
             z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            filter: brightness(45%) saturate(1.2) contrast(1.1);
+            transform: scale(1.02);
+            transition: transform 8s ease-in-out;
+        }
+
+        .hero:hover .hero-image img {
+            transform: scale(1.08);
         }
 
         .hero-overlay {
@@ -267,7 +285,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, rgba(7, 10, 8, 0.92) 0%, rgba(142, 68, 173, 0.3) 60%, rgba(26, 188, 156, 0.15) 100%);
+            background: linear-gradient(145deg, rgba(7, 10, 8, 0.88) 0%, rgba(142, 68, 173, 0.35) 60%, rgba(26, 188, 156, 0.15) 100%);
             z-index: 1;
         }
 
@@ -275,32 +293,50 @@
             position: relative;
             z-index: 2;
             color: var(--text-light);
-            max-width: 800px;
-            padding: 80px 20px 0 20px;
+            max-width: 900px;
+            padding: 100px 20px 0 20px;
         }
 
         .hero-content h1 {
             font-size: 4.5rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
         }
+
         .hero-content h1 .highlight {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-rose));
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-rose), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2.5rem;
-            color: #e0e0e0;
+            color: #e8e8e8;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
         .hero-buttons {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* --- About Section --- */
@@ -316,6 +352,7 @@
             border-radius: 15px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             border: 2px solid rgba(212, 175, 55, 0.15);
+            display: block;
         }
 
         .about-text p {
@@ -327,8 +364,8 @@
         /* --- Services --- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .service-card {
@@ -345,15 +382,15 @@
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(142, 68, 173, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(142, 68, 173, 0.25);
             border-bottom: 4px solid var(--accent-teal);
             background: rgba(18, 26, 21, 0.95);
         }
 
         .service-card img {
             width: 100%;
-            height: 250px;
+            height: 220px;
             object-fit: cover;
             opacity: 0.85;
             transition: opacity 0.3s;
@@ -364,68 +401,147 @@
         }
 
         .service-content {
-            padding: 2rem;
+            padding: 1.8rem;
             flex-grow: 1;
         }
 
         .service-content h3 {
             color: var(--accent-gold);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
         }
 
         .service-content p {
             color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        /* --- Testimonials --- */
-        .testimonial-container {
-            background: linear-gradient(135deg, rgba(18, 26, 21, 0.95), rgba(142, 68, 173, 0.1));
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        /* --- Testimonials Section --- */
+        .testimonials-section {
+            padding: 5rem 0;
+            position: relative;
+            background: radial-gradient(circle at 10% 20%, #0f1712, #030504);
+        }
+
+        .testimonials-section .section-bg-image {
+            opacity: 0.08;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.05rem;
+        }
+
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            backdrop-filter: blur(12px);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
         }
 
-        .testimonial-img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
+        .testimonial-card {
+            background: var(--bg-card);
             border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            backdrop-filter: blur(4px);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        .testimonial-card blockquote {
+            font-style: italic;
+            color: #d1d5d2;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent-purple);
         }
 
         .quote-icon {
-            font-size: 3rem;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            display: block;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            margin-right: 5px;
         }
 
-        .testimonial-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #d1d5d2;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .testimonial-name {
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .testimonial-cta {
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .testimonial-cta a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .testimonial-cta a:hover {
             color: var(--accent-teal);
-            font-size: 1.1rem;
         }
 
-        /* --- FAQ SECTION (NEW - Beautiful Gradient) --- */
+        /* --- FAQ Section --- */
         .faq-section {
             background: linear-gradient(145deg, #0b0e0c, #1a0f25);
-            padding: 6rem 0;
+            padding: 5rem 0;
             position: relative;
             border-top: 1px solid rgba(142, 68, 173, 0.2);
             border-bottom: 1px solid rgba(142, 68, 173, 0.2);
@@ -447,7 +563,7 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.8rem;
             position: relative;
             z-index: 2;
         }
@@ -469,25 +585,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 1.8rem;
             cursor: pointer;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-light);
             transition: var(--transition);
             gap: 1rem;
         }
 
-        .faq-question i {
+        .faq-question i:first-child {
             color: var(--accent-teal);
-            font-size: 1.2rem;
-            transition: var(--transition);
+            font-size: 1.1rem;
+            margin-right: 10px;
             min-width: 20px;
         }
 
         .faq-question .fa-chevron-down {
             color: var(--accent-gold);
             font-size: 0.9rem;
+            transition: var(--transition);
+            flex-shrink: 0;
         }
 
         .faq-item.active .faq-question .fa-chevron-down {
@@ -502,12 +620,12 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.3s ease;
-            padding: 0 2rem;
+            padding: 0 1.8rem;
         }
 
         .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 0 2rem 1.5rem 2rem;
+            max-height: 350px;
+            padding: 0 1.8rem 1.5rem 1.8rem;
         }
 
         .faq-answer p {
@@ -548,27 +666,28 @@
         }
 
         .contact-info {
-            padding: 4rem;
+            padding: 3.5rem;
             color: var(--text-light);
         }
 
         .contact-info h3 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             color: var(--accent-gold);
+            font-family: 'Cinzel', serif;
         }
 
         .contact-details {
             list-style: none;
-            margin-top: 2.5rem;
+            margin-top: 2rem;
         }
 
         .contact-details li {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
             gap: 15px;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .contact-details a {
@@ -583,12 +702,13 @@
 
         .contact-details i {
             color: var(--accent-gold);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             width: 25px;
+            text-align: center;
         }
 
         .contact-form {
-            padding: 4rem;
+            padding: 3.5rem;
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
@@ -597,7 +717,7 @@
 
         .contact-form input,
         .contact-form textarea {
-            padding: 18px;
+            padding: 16px 18px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             background: rgba(255, 255, 255, 0.04);
             color: white;
@@ -645,7 +765,7 @@
             background: #030504;
             color: #666;
             text-align: center;
-            padding: 2.5rem;
+            padding: 2rem;
             font-size: 0.9rem;
             border-top: 1px solid rgba(212, 175, 55, 0.05);
         }
@@ -657,31 +777,57 @@
             will-change: opacity, transform;
         }
 
-        .fade-up { transform: translateY(40px); }
-        .fade-right { transform: translateX(-40px); }
-        .fade-left { transform: translateX(40px); }
+        .fade-up {
+            transform: translateY(40px);
+        }
+        .fade-right {
+            transform: translateX(-40px);
+        }
+        .fade-left {
+            transform: translateX(40px);
+        }
 
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translate(0, 0);
         }
 
-        .delay-1 { transition-delay: 0.2s; }
-        .delay-2 { transition-delay: 0.4s; }
+        .delay-1 {
+            transition-delay: 0.15s;
+        }
+        .delay-2 {
+            transition-delay: 0.3s;
+        }
+        .delay-3 {
+            transition-delay: 0.45s;
+        }
 
-        /* --- Responsive --- */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
-            .about-grid, .contact-grid, .testimonial-container {
+            .about-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2.5rem;
             }
-            .testimonial-container { padding: 3rem 2rem; }
-            .hero-content h1 { font-size: 3.5rem; }
-            .section-title { font-size: 2.4rem; }
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            .section-title {
+                font-size: 2.4rem;
+            }
+            .contact-info,
+            .contact-form {
+                padding: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1.1rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .mobile-menu-toggle { display: block; }
+            .mobile-menu-toggle {
+                display: block;
+            }
             .nav-links {
                 position: absolute;
                 top: 100%;
@@ -695,19 +841,81 @@
                 transition: max-height 0.4s ease-out;
                 border-top: 1px solid #222;
             }
-            .nav-links.active { max-height: 450px; }
+            .nav-links.active {
+                max-height: 450px;
+            }
             .nav-links a {
-                padding: 18px;
+                padding: 16px;
                 width: 100%;
                 text-align: center;
                 border-bottom: 1px solid #222;
+                font-size: 0.9rem;
             }
-            .nav-btn { border-radius: 0; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-buttons { flex-direction: column; padding: 0 20px; }
-            .contact-info, .contact-form { padding: 2.5rem; }
-            .faq-question { padding: 1.2rem; font-size: 1rem; }
-            .faq-item.active .faq-answer { padding: 0 1.2rem 1.2rem 1.2rem; }
+            .nav-btn {
+                border-radius: 0 !important;
+                justify-content: center;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 10px;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            .about-grid {
+                gap: 2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-question {
+                padding: 1rem 1.2rem;
+                font-size: 0.95rem;
+            }
+            .faq-item.active .faq-answer {
+                padding: 0 1.2rem 1.2rem 1.2rem;
+            }
+            .faq-answer p {
+                padding-left: 1rem;
+            }
+            .contact-info h3 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content p {
+                font-size: 0.95rem;
+            }
+            .contact-info,
+            .contact-form {
+                padding: 1.8rem;
+            }
+            .hero-image img {
+                object-position: center 20%;
+            }
         }
     </style>
 </head>
@@ -715,35 +923,49 @@
 <body>
 
     <!-- ===== HEADER ===== -->
-<header class="navbar" id="navbar">
+    <header class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">Dr. Mhandi</a>
             <div class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
             </div>
-            <nav class="nav-links" id="navLinks"><a href="#home">Home</a> <a href="#about">About</a> <a href="#services">Expertise</a> <a href="#testimonials">Testimonials</a> <a href="#faq">FAQ</a> <a href="#contact">Contact</a> <a href="https://wa.me/256761409762" target="_blank" class="btn-whatsapp nav-btn"> <em class="fab fa-whatsapp"></em> WhatsApp </a></nav>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Expertise</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+                <a href="https://wa.me/256761409762" target="_blank" class="btn-whatsapp nav-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </nav>
         </div>
     </header>
 
-    <!-- ===== HERO ===== -->
-<section id="home" class="hero">
-  <div class="hero-image" style="background-image: </div>
-        <div class="hero-overlay"><img src="pics/tradi.jpg" width="1486" height="1081" alt="description" style="filter: brightness(50%) contrast(64%);"/></div>
+    <!-- ===== HERO - Enhanced with New Title & Eye-Catching Image ===== -->
+    <section id="home" class="hero">
+        <div class="hero-image">
+            <!-- REPLACE 'pics/tradi.jpg' WITH YOUR PREFERRED EYE-CATCHING BACKGROUND IMAGE -->
+            <img src="pics/tradi.jpg" alt="Traditional Healing, Spiritual Cleansing, Deliverance and Mystery" />
+        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content animate-on-scroll fade-up visible">
-            <h1>Traditional Healing &amp; <br> <span class="highlight">Spiritual Mastery</span></h1>
-            <p><b>Deeply revered ancestral wisdom and time-honored traditional methodologies to restore holistic equilibrium, attract sustained prosperity, and resolve life's most profound challenges.</p>
+            <h1>Traditional Healing, <br /><span class="highlight">Spiritual Cleansing,</span><br /> Deliverance &amp; Mystery</h1>
+            <p><b>Deeply revered ancestral wisdom and time-honored traditional methodologies to restore holistic equilibrium, attract sustained prosperity, and resolve life's most profound challenges.</b></p>
             <div class="hero-buttons">
                 <a href="#services" class="btn btn-primary">Explore Solutions</a>
                 <a href="tel:+256761409762" class="btn btn-outline">Call +256 761 409 762</a>
             </div>
         </div>
-</section>
+    </section>
 
     <!-- ===== ABOUT ===== -->
-<section id="about" class="section">
-        <div class="section-bg-image" style="background-image: url('https://herbalistdrgwaurodaktari.co.ke/images/Witch%20craft%20doctor.jpg alt=Description" style="filter: brightness(60%) contrast(75);");"></div>
+    <section id="about" class="section">
+        <div class="section-bg-image" style="background-image: url('https://herbalistdrgwaurodaktari.co.ke/images/Witch%20craft%20doctor.jpg');"></div>
         <div class="container about-grid">
-            <div class="about-image animate-on-scroll fade-right"> <img src="pics/photot 1.jpg" width="1390" height="609" alt=""/>
+            <div class="about-image animate-on-scroll fade-right">
+                <img src="pics/photot 1.jpg" alt="Dr. Mhandi" />
             </div>
             <div class="about-text animate-on-scroll fade-left">
                 <h2 class="section-title">Meet Dr. Mhandi</h2>
@@ -752,7 +974,7 @@
                 <p>From restoring fractured relationships and engineering financial breakthroughs to performing profound spiritual cleansings and providing impenetrable traditional protection, our strictly confidential consultations are meticulously designed to empower your destiny and illuminate your path to enduring success.</p>
             </div>
         </div>
-</section>
+    </section>
 
     <!-- ===== SERVICES ===== -->
     <section id="services" class="section dark-bg">
@@ -760,287 +982,251 @@
             <h2 class="section-title text-center animate-on-scroll fade-up">Our Expertise &amp; Solutions</h2>
             <div class="title-underline center-underline animate-on-scroll fade-up"></div>
             <div class="services-grid">
-                <div class="service-card animate-on-scroll fade-up"> <img src="pics/3de594d1489198b6ae2b31964f371dd0 - Copy.jpg" width="736" height="1104" alt=""/>
+                <!-- Service cards (your content preserved) -->
+                <div class="service-card animate-on-scroll fade-up">
+                    <img src="pics/3de594d1489198b6ae2b31964f371dd0 - Copy.jpg" alt="Love & Relationship" />
                     <div class="service-content">
-                      <h3>Love &amp; Relationship Restoration</h3>
+                        <h3>Love &amp; Relationship Restoration</h3>
                         <p>Powerful traditional bindings to reunite with lost lovers, heal broken marriages, and secure unwavering commitment.</p>
-                  </div>
-              </div>
-                <div class="service-card animate-on-scroll fade-up delay-1"> <img src="pics/83f40ac5233969cff85ccc77d9c14005 - Copy (3).jpg" width="715" height="1269" alt=""/>
+                    </div>
+                </div>
+                <div class="service-card animate-on-scroll fade-up delay-1">
+                    <img src="pics/83f40ac5233969cff85ccc77d9c14005 - Copy (3).jpg" alt="Spiritual Cleansing" />
                     <div class="service-content">
-                      <h3>Spiritual Cleansing &amp; Curse Removal</h3>
+                        <h3>Spiritual Cleansing &amp; Curse Removal</h3>
                         <p>Eradicate persistent bad luck, break destructive generational curses, and purge negative witchcraft from your aura.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-2"> <img src="pics/money.jpg" width="1441" height="1921" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-2">
+                    <img src="pics/money.jpg" alt="Wealth & Business" />
                     <div class="service-content">
-                      <h3>Wealth &amp; Business Success Rituals</h3>
+                        <h3>Wealth &amp; Business Success Rituals</h3>
                         <p>Specialized money spells and customer attraction rituals to unlock financial abundance and stabilize your business.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up"> <img src="pics/protection.jpg" width="704" height="1408" alt=""/>
+                <div class="service-card animate-on-scroll fade-up">
+                    <img src="pics/protection.jpg" alt="Spiritual Protection" />
                     <div class="service-content">
-                      <h3>Spiritual Protection &amp; Evil Eye</h3>
+                        <h3>Spiritual Protection &amp; Evil Eye</h3>
                         <p>Fortify your family, home, and soul against malicious spiritual attacks, jealousy, and the evil eye.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-1"> <img src="pics/justice.jpg" width="736" height="1104" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-1">
+                    <img src="pics/justice.jpg" alt="Legal Justice" />
                     <div class="service-content">
-                      <h3>Legal Justice &amp; Lost Property</h3>
+                        <h3>Legal Justice &amp; Lost Property</h3>
                         <p>Spiritual intervention to win court cases, resolve land disputes, and recover stolen possessions.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-2"> <img src="pics/men.jpg" width="1440" height="1920" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-2"> <img src="pics/WEME.jpg" width="736" height="1074" alt=""/>
                     <div class="service-content">
                       <h3>Men's Health &amp; Vitality</h3>
                         <p>Authentic herbal formulations to treat erectile dysfunction, boost libido, and restore masculine confidence.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up"> <img src="pics/promotion.jpg" width="1600" height="2133" alt=""/>
+                <div class="service-card animate-on-scroll fade-up">
+                    <img src="pics/promotion.jpg" alt="Traditional Herbalism" />
                     <div class="service-content">
-                      <h3>Traditional Herbalism</h3>
+                        <h3>Traditional Herbalism</h3>
                         <p>Custom natural remedies for chronic conditions, crafted from potent African roots and plant extracts.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-1"> <img src="pics/marriage.jpg" width="1280" height="1706" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-1">
+                    <img src="pics/marriage.jpg" alt="Marriage Counseling" />
                     <div class="service-content">
-                      <h3>Marriage Counseling &amp; Reconciliation</h3>
+                        <h3>Marriage Counseling &amp; Reconciliation</h3>
                         <p>Bridge deep-seated differences, foster mutual understanding, and rekindle passion to prevent divorce.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-2"> <img src="pics/tradi.jpg" width="736" height="981" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-2">
+                    <img src="pics/tradi.jpg" alt="Career Advancement" />
                     <div class="service-content">
-                      <h3>Career Advancement &amp; Tenders</h3>
+                        <h3>Career Advancement &amp; Tenders</h3>
                         <p>Attract workplace promotions, outshine rivals, and secure lucrative contracts and tenders.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up"> <img src="pics/deliveranc.jpg" width="736" height="1308" alt=""/>
+                <div class="service-card animate-on-scroll fade-up">
+                    <img src="pics/deliveranc.jpg" alt="Exorcism & Deliverance" />
                     <div class="service-content">
-                      <h3>Exorcism &amp; Deliverance</h3>
+                        <h3>Exorcism &amp; Deliverance</h3>
                         <p>Expel demonic entities, malevolent spirits, and negative attachments disrupting your family lineage.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-1"> <img src="pics/justice 2.jpg" width="385" height="478" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-1">
+                    <img src="pics/justice 2.jpg" alt="Justice & Reversal" />
                     <div class="service-content">
-                      <h3>Justice &amp; Reversal Rituals</h3>
+                        <h3>Justice &amp; Reversal Rituals</h3>
                         <p>Ethical spiritual justice to reverse hexes and neutralize the schemes of adversaries.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-2"> <img src="pics/pyhs.jpg" width="1439" height="1918" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-2">
+                    <img src="pics/pyhs.jpg" alt="Psychic Readings" />
                     <div class="service-content">
-                      <h3>Psychic Readings &amp; Divination</h3>
+                        <h3>Psychic Readings &amp; Divination</h3>
                         <p>Gain absolute clarity on your past, present, and future to navigate critical life crossroads.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up"> <img src="pics/reversal.jpg" width="1536" height="2048" alt=""/>
+                <div class="service-card animate-on-scroll fade-up">
+                    <img src="pics/reversal.jpg" alt="Witchcraft Reversal" />
                     <div class="service-content">
-                      <h3>Witchcraft Reversal</h3>
+                        <h3>Witchcraft Reversal</h3>
                         <p>Identify and dismantle dark magic, returning negative energies to their source.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-1"> <img src="pics/roots.jpg" width="736" height="1104" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-1">
+                    <img src="pics/roots.jpg" alt="Ancestral Consultations" />
                     <div class="service-content">
-                      <h3>Ancestral Consultations</h3>
+                        <h3>Ancestral Consultations</h3>
                         <p>Communicate with your roots to unlock ancestral blessings and overcome persistent blockages.</p>
                     </div>
                 </div>
-                <div class="service-card animate-on-scroll fade-up delay-2"> <img src="pics/defence.jpg" width="1290" height="1720" alt=""/>
+                <div class="service-card animate-on-scroll fade-up delay-2">
+                    <img src="pics/defence.jpg" alt="Custom Amulets" />
                     <div class="service-content">
-                      <h3>Custom Amulets &amp; Talismans</h3>
+                        <h3>Custom Amulets &amp; Talismans</h3>
                         <p>Personalized protective charms and roots for daily luck, spiritual defense, and attraction.</p>
-						
-						
                     </div>
                 </div>
             </div>
         </div>
-</section>
-												
-												
-												
-				
+    </section>
 
-    <!-- ===== TESTIMONIALS SECTION (NEW WITH 4 TESTIMONIALS) ===== -->
+    <!-- ===== TESTIMONIALS ===== -->
     <section id="testimonials" class="testimonials-section">
-      <div class="section-bg-image" style="background-image: url('https://herbalistdrgwaurodaktari.co.ke/images/Witch%20craft%20mirror.jpg');"></div>
+        <div class="section-bg-image" style="background-image: url('https://herbalistdrgwaurodaktari.co.ke/images/Witch%20craft%20mirror.jpg');"></div>
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll fade-up">What Our Clients Say</h2>
             <div class="title-underline center-underline animate-on-scroll fade-up"></div>
             <p class="section-subtitle animate-on-scroll fade-up">Real stories from individuals whose lives have been transformed through Dr. Mhandi's traditional healing and spiritual guidance.</p>
 
             <div class="testimonials-grid">
-
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card animate-on-scroll fade-up">
                     <div class="testimonial-header">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <span class="testimonial-date">January 2026</span>
                     </div>
-                    <blockquote>
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        "When conventional methods failed me, the profound wisdom of Dr. Mhandi restored peace and prosperity to my family. The confidentiality, the potency of the roots, and the spiritual clarity provided were absolutely transformative. I urge anyone in need to seek his counsel without hesitation."
-                    </blockquote>
+                    <blockquote><i class="fas fa-quote-left quote-icon"></i> "When conventional methods failed me, the profound wisdom of Dr. Mhandi restored peace and prosperity to my family. The confidentiality, the potency of the roots, and the spiritual clarity provided were absolutely transformative. I urge anyone in need to seek his counsel without hesitation."</blockquote>
                     <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #d4af37, #8e44ad);">
-                            <span>JM</span>
-                        </div>
-                        <div class="author-info">
-                            <h4>James M.</h4>
-                            <p>Business Owner, Nairobi</p>
-                        </div>
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #d4af37, #8e44ad);"><span>JM</span></div>
+                        <div class="author-info"><h4>James M.</h4><p>Business Owner, Nairobi</p></div>
                     </div>
                 </div>
-
                 <!-- Testimonial 2 -->
                 <div class="testimonial-card animate-on-scroll fade-up delay-1">
                     <div class="testimonial-header">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <span class="testimonial-date">March 2026</span>
                     </div>
-                    <blockquote>
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        "After years of struggling with unexplained misfortune in my business, Dr. Mhandi performed powerful wealth rituals that completely turned my fortunes around. Within weeks, my sales tripled, and I finally found the peace I had been searching for. His work is nothing short of miraculous."
-                    </blockquote>
+                    <blockquote><i class="fas fa-quote-left quote-icon"></i> "After years of struggling with unexplained misfortune in my business, Dr. Mhandi performed powerful wealth rituals that completely turned my fortunes around. Within weeks, my sales tripled, and I finally found the peace I had been searching for. His work is nothing short of miraculous."</blockquote>
                     <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #1abc9c, #3b82f6);">
-                            <span>SM</span>
-                        </div>
-                        <div class="author-info">
-                            <h4>Sarah M.</h4>
-                            <p>Entrepreneur, Kampala</p>
-                        </div>
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #1abc9c, #3b82f6);"><span>SM</span></div>
+                        <div class="author-info"><h4>Sarah M.</h4><p>Entrepreneur, Kampala</p></div>
                     </div>
                 </div>
-
                 <!-- Testimonial 3 -->
                 <div class="testimonial-card animate-on-scroll fade-up delay-2">
                     <div class="testimonial-header">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <span class="testimonial-date">May 2026</span>
                     </div>
-                    <blockquote>
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        "Dr. Mhandi saved my marriage when all hope was lost. My wife and I were on the verge of divorce, but after his powerful binding rituals and counseling, we rediscovered our love and commitment. Our home is now filled with joy and harmony. I am forever grateful."
-                    </blockquote>
+                    <blockquote><i class="fas fa-quote-left quote-icon"></i> "Dr. Mhandi saved my marriage when all hope was lost. My wife and I were on the verge of divorce, but after his powerful binding rituals and counseling, we rediscovered our love and commitment. Our home is now filled with joy and harmony. I am forever grateful."</blockquote>
                     <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #e6a8d7, #d4af37);">
-                            <span>RK</span>
-                        </div>
-                        <div class="author-info">
-                            <h4>Robert K.</h4>
-                            <p>Engineer, Mombasa</p>
-                        </div>
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #e6a8d7, #d4af37);"><span>RK</span></div>
+                        <div class="author-info"><h4>Robert K.</h4><p>Engineer, Mombasa</p></div>
                     </div>
                 </div>
-
                 <!-- Testimonial 4 -->
                 <div class="testimonial-card animate-on-scroll fade-up delay-3">
                     <div class="testimonial-header">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <span class="testimonial-date">June 2026</span>
                     </div>
-                    <blockquote>
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        "For years, I suffered from chronic health issues that no hospital could diagnose. Dr. Mhandi's herbal remedies and spiritual cleansing addressed the root cause of my illness. Today, I am healthier and more energetic than I have been in a decade. His knowledge is unmatched."
-                    </blockquote>
+                    <blockquote><i class="fas fa-quote-left quote-icon"></i> "For years, I suffered from chronic health issues that no hospital could diagnose. Dr. Mhandi's herbal remedies and spiritual cleansing addressed the root cause of my illness. Today, I am healthier and more energetic than I have been in a decade. His knowledge is unmatched."</blockquote>
                     <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #3b82f6, #8e44ad);">
-                            <span>AN</span>
-                        </div>
-                        <div class="author-info">
-                            <h4>Alice N.</h4>
-                            <p>Teacher, Dar es Salaam</p>
-                        </div>
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #3b82f6, #8e44ad);"><span>AN</span></div>
+                        <div class="author-info"><h4>Alice N.</h4><p>Teacher, Dar es Salaam</p></div>
                     </div>
                 </div>
-
             </div>
-
-            <!-- CTA to leave a testimonial -->
             <div class="testimonial-cta animate-on-scroll fade-up">
                 <p>Have a story to share? <a href="#contact">Share your experience</a> with us.</p>
             </div>
         </div>
     </section>
-																												
 
-																													  
-<section style="margin-bottom: 40px;">
-  <h2>
-  
-																													  <center><P style="color: yellow;"><b> FAQ SECTION</b></center></P></div>
-
-                <!-- FAQ 4 -->
+    <!-- ===== FAQ SECTION - Enhanced with Witchcraft Keywords ===== -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll fade-up">Frequently Asked Questions</h2>
+            <div class="title-underline center-underline animate-on-scroll fade-up"></div>
+            <div class="faq-grid">
+                <!-- FAQ 1 - Witchcraft & Black Magic -->
                 <div class="faq-item animate-on-scroll fade-up">
-                    <div class="faq-question" onclick="toggleFaq(this)"><span><em class="fas fa-male"></em> Can herbal medicine treat erectile dysfunction and low libido effectively?</span> <em class="fas fa-chevron-down"></em></div>
-                    <div class="faq-answer"><p>Dr. Mhandi formulates potent traditional herbs that naturally restore male vitality, treat erectile dysfunction, enhance libido, and improve stamina. These remedies are derived from ancient African pharmacopoeia and are entirely natural.</p></div>
-                </div>
-                <!-- FAQ 5 -->
-                <div class="faq-item animate-on-scroll fade-up delay-1">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span><i class="fas fa-shield-alt"></i> How do I know if I am under spiritual attack or black magic?</span>
+                        <span><i class="fas fa-skull"></i> How do I know if I am under a witchcraft attack or black magic spell?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="faq-answer"><p>Common signs include persistent nightmares, unexplained illnesses, financial ruin, marital strife, and constant bad luck. Dr. Mhandi performs psychic readings and divination to confirm attacks and provides powerful protection rituals.</p></div>
+                    <div class="faq-answer"><p>Common signs of witchcraft or black magic include persistent nightmares, unexplained illnesses, financial ruin, marital strife, and constant bad luck. Dr. Mhandi performs psychic readings and divination to confirm attacks and provides powerful protection rituals to break curses and hexes.</p></div>
                 </div>
-                <!-- FAQ 6 -->
+                <!-- FAQ 2 - Hex Removal -->
+                <div class="faq-item animate-on-scroll fade-up delay-1">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><i class="fas fa-bolt"></i> Can you remove hexes, curses, and dark magic from my life?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer"><p>Yes. Dr. Mhandi specializes in identifying and dismantling dark magic, hexes, and generational curses. Using powerful reversal rituals and spiritual cleansings, he neutralizes negative energies and returns them to their source, restoring peace and prosperity.</p></div>
+                </div>
+                <!-- FAQ 3 - Spiritual Cleansing -->
                 <div class="faq-item animate-on-scroll fade-up delay-2">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><i class="fas fa-broom"></i> What does a spiritual cleansing involve, and how does it remove witchcraft?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer"><p>Spiritual cleansing involves powerful rituals using sacred herbs, roots, and prayers to purge negative energy, witchcraft, and evil spirits from your aura and home. It breaks curses, removes the evil eye, and restores your spiritual protection.</p></div>
+                </div>
+                <!-- FAQ 4 - Male Vitality -->
+                <div class="faq-item animate-on-scroll fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span><i class="fas fa-male"></i> Can herbal medicine treat erectile dysfunction and low libido effectively?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer"><p>Dr. Mhandi formulates potent traditional herbs that naturally restore male vitality, treat erectile dysfunction, enhance libido, and improve stamina. These remedies are derived from ancient African pharmacopoeia and are entirely natural.</p></div>
+                </div>
+                <!-- FAQ 5 - Ancestral Consultations -->
+                <div class="faq-item animate-on-scroll fade-up delay-1">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-tree"></i> What ancestral spiritual consultations do you offer for destiny?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer"><p>We connect you with your ancestral spirits to heal generational traumas, unlock dormant talents, and align your destiny. This helps in overcoming repeated failures and receiving guidance for major life decisions.</p></div>
                 </div>
-                <!-- FAQ 7 -->
-                <div class="faq-item animate-on-scroll fade-up">
+                <!-- FAQ 6 - Justice & Revenge -->
+                <div class="faq-item animate-on-scroll fade-up delay-2">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-gavel"></i> Can traditional justice spells help me win a court case or get revenge?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer"><p>Dr. Mhandi performs ethical justice rituals to ensure truth prevails in legal battles. For cases of severe wrongdoing, we offer spiritual revenge to expose lies and bring fair retribution upon enemies.</p></div>
                 </div>
-                <!-- FAQ 8 -->
-                <div class="faq-item animate-on-scroll fade-up delay-1">
+                <!-- FAQ 7 - Psychic Readings -->
+                <div class="faq-item animate-on-scroll fade-up">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-eye"></i> How do psychic readings work and can they predict my future?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer"><p>Psychic readings tap into the spiritual energy around you using bones, shells, or ancestral visions. Dr. Mhandi reveals hidden truths, upcoming opportunities, and warns you of potential dangers ahead.</p></div>
                 </div>
-                <!-- FAQ 9 -->
-                <div class="faq-item animate-on-scroll fade-up delay-2">
+                <!-- FAQ 8 - Divorce Prevention -->
+                <div class="faq-item animate-on-scroll fade-up delay-1">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-hand-holding-heart"></i> What is the process for divorce prevention using traditional roots?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer"><p>We use special roots and binding rituals to calm anger, increase intimacy, and restore communication between partners. This process addresses the spiritual root cause of marital discord, preventing separation.</p></div>
                 </div>
-                <!-- FAQ 10 -->
-                <div class="faq-item animate-on-scroll fade-up">
+                <!-- FAQ 9 - Career & Promotion -->
+                <div class="faq-item animate-on-scroll fade-up delay-2">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span><i class="fas fa-briefcase"></i> Can you help me get a promotion or outshine my workplace rivals?</span>
                         <i class="fas fa-chevron-down"></i>
@@ -1049,9 +1235,7 @@
                 </div>
             </div>
         </div>
-    </h2>
-</section>
-																													  
+    </section>
 
     <!-- ===== CONTACT ===== -->
     <section id="contact" class="section contact-bg">
@@ -1087,7 +1271,7 @@
 
     <!-- ===== FOOTER ===== -->
     <footer>
-        <p>&copy; 2026 Dr. Mhandi — Renowned Traditional Healer &amp; Spiritual Guide.</p>
+        <p>&copy; 2026 Dr. Mhandi — Traditional Healing, Spiritual Cleansing, Deliverance &amp; Mystery.</p>
     </footer>
 
     <!-- ===== JAVASCRIPT ===== -->
@@ -1129,7 +1313,6 @@
             const item = element.closest('.faq-item');
             const isActive = item.classList.contains('active');
 
-            // Close all other open items
             document.querySelectorAll('.faq-item').forEach(el => {
                 if (el !== item) el.classList.remove('active');
             });
